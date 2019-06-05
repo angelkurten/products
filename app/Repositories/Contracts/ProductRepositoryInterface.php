@@ -16,4 +16,10 @@ interface ProductRepositoryInterface
 
     public function all();
 
+    public function findById($id);
+
+    public function addStock($id, $stock);
+
+    public function removeStock($id, $stock);
+
 }

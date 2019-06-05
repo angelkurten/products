@@ -4,6 +4,9 @@ namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property bool state
+ */
 class Product extends Model
 {
 
