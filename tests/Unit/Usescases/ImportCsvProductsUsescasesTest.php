@@ -8,7 +8,6 @@ use App\Usescases\Product\ImportCsvProductsUsecase;
 
 use App\Utilities\Contract\ImportFileInterface;
 use SplFileInfo;
-use SplFileObject;
 use Tests\TestCase;
 
 class ImportCsvProductsUsescasesTest extends TestCase
@@ -25,20 +24,19 @@ class ImportCsvProductsUsescasesTest extends TestCase
 
         $this->importFile = \Mockery::mock(ImportFileInterface::class);
 
-
     }
 
 
     public function test_import_file()
     {
         $local_file = public_path('productos.csv');
-        chmod($local_file, 777);
-        $file = new SplFileObject($local_file);
+        touch($local_file);
+        chmod($local_file, 0444);
+        $file = new SplFileInfo($local_file);
         $this->importFile->shouldReceive('file')->with($file);
+
         $usecase = new ImportCsvProductsUsecase();
-
         $result = $usecase->handle($file);
-
         $this->assertEquals(true, $result);
     }
 
