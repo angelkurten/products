@@ -2,12 +2,12 @@
 
 @section('content')
     <section>
-        <table class="table">
+        <table class="table table-dark">
             <thead>
             <tr>
-                <td>Name</td>
-                <td>Stock</td>
-                <td>Price</td>
+                <td scope="col">Name</td>
+                <td scope="col">Stock</td>
+                <td scope="col">Price</td>
             </tr>
             </thead>
             <tbody>
@@ -20,14 +20,22 @@
                 @endforeach
             </tbody>
         </table>
-
         <div>
             <form action="{{ route('product_import_csv') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <label for="csv">Subir CSV</label>
-                <input type="file" name="csv" id="csv" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
 
-                <button type="submit">Upload</button>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input name="csv" type="file" class="custom-file-input" id="csv" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="csv">Choose file</label>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary btn-lg">Upload</button>
             </form>
         </div>
     </section>
