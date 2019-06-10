@@ -7,6 +7,6 @@ namespace App\Usescases\Product\Contracts;
 interface DeactivateProductUsecaseInterface
 {
 
-    public function handle($id);
+    public function handle($object);
 
 }

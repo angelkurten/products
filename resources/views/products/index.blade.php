@@ -8,6 +8,7 @@
                 <td scope="col">Name</td>
                 <td scope="col">Stock</td>
                 <td scope="col">Price</td>
+                <td scope="col">Status</td>
             </tr>
             </thead>
             <tbody>
@@ -16,6 +17,7 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->stock }}</td>
                         <td>{{ $product->price }}</td>
+                        <td>{{ $product->status }}</td>
                     </tr>
                 @endforeach
             </tbody>

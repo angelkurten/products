@@ -24,8 +24,8 @@ class DeactivateProductUsecase implements DeactivateProductUsecaseInterface
         $this->productRepository = $productRepository;
     }
 
-    public function handle($id)
+    public function handle($object)
     {
-        return $this->productRepository->updateStatus($id, true);
+        return $this->productRepository->updateStatus($object->id, false);
     }
 }

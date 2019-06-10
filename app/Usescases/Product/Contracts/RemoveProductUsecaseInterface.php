@@ -7,6 +7,6 @@ namespace App\Usescases\Product\Contracts;
 interface RemoveProductUsecaseInterface
 {
 
-    public function handle($id, $stock);
+    public function handle($object);
 
 }

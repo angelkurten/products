@@ -27,12 +27,11 @@ class AddProductUsecase implements AddProductUsecaseInterface
     }
 
     /**
-     * @param $id
-     * @param $stock
+     * @param $object
      * @return Product
      */
-    public function handle($id, $stock)
+    public function handle($object)
     {
-        return $this->productRepository->addStock($id, $stock);
+        return $this->productRepository->addStock($object->id, $object->stock);
     }
 }

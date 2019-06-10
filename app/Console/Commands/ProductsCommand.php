@@ -49,16 +49,14 @@ class ProductsCommand extends Command
     public function handle()
     {
         $action = strtoupper($this->argument('action'));
-        $id = $this->argument('id');
         $usecase = $this->getUsecase($action);
 
-        if($action == 'ACTIVATE' || $action == 'DEACTIVATE'){
-            $usecase->handle($id);
-        } elseif ($action == 'ADD' || $action == 'REMOVE') {
-            $stock = $this->argument('stock');
+        $data = (object) [
+            'id' => $this->argument('id'),
+            'stock' => $this->argument('stock'),
+        ];
 
-            $usecase->handle($id, $stock);
-        }
+        $usecase->handle($data);
     }
 
     /**

@@ -28,12 +28,11 @@ class RemoveProductUsecase implements RemoveProductUsecaseInterface
     }
 
     /**
-     * @param $id
-     * @param $stock
+     * @param $object
      * @return Product
      */
-    public function handle($id, $stock)
+    public function handle($object)
     {
-        return $this->productRepository->removeStock($id, $stock);
+        return $this->productRepository->removeStock($object->id, $object->stock);
     }
 }

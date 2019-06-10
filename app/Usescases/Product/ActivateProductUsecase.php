@@ -26,11 +26,11 @@ class ActivateProductUsecase implements ActivateProductUsecaseInterface
     }
 
     /**
-     * @param $id
+     * @param $object
      * @return \App\Entities\Product
      */
-    public function handle($id)
+    public function handle($object)
     {
-        return $this->productRepository->updateStatus($id, true);
+        return $this->productRepository->updateStatus($object->id, true);
     }
 }

@@ -5,6 +5,7 @@ namespace Tests\Unit\Usescases;
 
 
 use App\Repositories\Contracts\ProductRepositoryInterface;
+use App\Usescases\Product\AddProductUsecase;
 use App\Usescases\Product\GetProductsUsecase;
 use mysql_xdevapi\Collection;
 use Tests\TestCase;
@@ -40,7 +41,7 @@ class AddProductUsescasesTest extends TestCase {
             ->andReturn(Product::class);
 
         $usecase = new AddProductUsecase($this->productRepository);
-        $result = $usecase->handle();
+        $result = $usecase->handle($id, $stock);
 
         $this->assertInstanceOf(Product::class, $result);
     }
