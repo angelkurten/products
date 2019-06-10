@@ -17,11 +17,12 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->stock }}</td>
                         <td>{{ $product->price }}</td>
-                        <td>{{ $product->status }}</td>
+                        <td>{{ $product->state }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        <br>
         <div>
             <form action="{{ route('product_import_csv') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
